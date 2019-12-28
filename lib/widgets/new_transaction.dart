@@ -22,11 +22,7 @@ class _NewTransactionState extends State<NewTransaction> {
     if (enteredTitle.isEmpty || enteredAmount <= 0 || _selectedDate == null)
       return;
 
-    widget.addTx(
-      enteredTitle,
-      enteredAmount,
-      _selectedDate
-    );
+    widget.addTx(enteredTitle, enteredAmount, _selectedDate);
 
     Navigator.of(context).pop();
   }
@@ -50,7 +46,11 @@ class _NewTransactionState extends State<NewTransaction> {
     return Card(
       elevation: 5,
       child: Container(
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.only(
+            left: 10,
+            top: 10,
+            right: 10,
+            bottom: 10), //  MediaQuery.of(context).viewInsets.bottom + 10 (old way) in case of softkeyboard),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
